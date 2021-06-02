@@ -1,0 +1,13 @@
+{% extends 'heros/index.html' %}
+
+{% block content %}
+    <form action="{% url 'heros:create_new_hero' %}" method="post">
+        {% csrf_token %}
+        Name: <input type='text' name='name' id='name'><br>
+        Alter: <input type='text' name='alter' id='alter'><br>
+        Primary: <input type='text' name='primary' id='primary'><br>
+        Secondary: <input type='text' name='secondary' id='secondary'><br>
+        <input type="submit" value'Add new!'>
+    </form>
+
+{% endblock content %}
