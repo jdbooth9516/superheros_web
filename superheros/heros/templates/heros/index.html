@@ -7,6 +7,12 @@
     <title>Superheros</title>
 </head>
 <body>
-    <h1>this is a templated view</h1>
+    <h1>list of heros</h1>
+    <ul>
+        {% for hero in all_heros %}
+        <li><h2>{{hero.name}}</h2></li>
+        {% endfor %}
+    </ul>
+ 
 </body>
 </html>
