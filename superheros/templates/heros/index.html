@@ -31,12 +31,12 @@
                 <ul>
                 <li>
                 <div class="panel-heading">
-                    <h2 id="hero-title">{{hero.name}} - {{hero.primary_power}}</h2>
+                    <h2 id="hero-title">{{hero.name}} - {{hero.alter}} - {{hero.primary_power}}</h2>
                 </div>
                 <div class="panel-body">
-                    <a href="{% url 'heros:detail' hero.id %}" class="btn btn-outline-info"> See more info </a>
-                    <a href="{% url 'heros:edit_hero' hero.id %}"class="btn btn-outline-primary"> edit hero </a>
-                    <a href="{% url 'heros:delete' hero.id %}" class="btn btn-outline-danger"> delete hero </a>
+                    <a href="{% url 'heros:detail' hero.id %}" class="btn btn-outline-info btn-sm"> See more info </a>
+                    <a href="{% url 'heros:edit_hero' hero.id %}"class="btn btn-outline-primary btn-sm"> edit hero </a>
+                    <a href="{% url 'heros:delete' hero.id %}" class="btn btn-outline-danger btn-sm"> delete hero </a>
                 </div>
                 </li>
             </ul>
