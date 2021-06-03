@@ -6,12 +6,12 @@
 <div class="jumbotron">
     <form action="" method="post">
         {% csrf_token %}
-        Name: <input type='text' name='name' id='name'><br>
-        Alter: <input type='text' name='alter' id='alter'><br>
-        Primary: <input type='text' name='primary' id='primary'><br>
-        Secondary: <input type='text' name='secondary' id='secondary'><br>
-        Catchphrase: <input type='text' name='phrase' id='phrase'> <br>
-        <input type="submit" value'Update Hero!'>
+        Name: <input type='text' name='name' id='name' value="{{hero.name}}"><br>
+        Alter: <input type='text' name='alter' id='alter' value="{{hero.alter}}"><br>
+        Primary: <input type='text' name='primary' id='primary' value="{{hero.primary_power}}"><br>
+        Secondary: <input type='text' name='secondary' id='secondary' value="{{hero.secondary_power}}"><br>
+        Catchphrase: <input type='text' name='phrase' id='phrase' value="{{hero.catch}}"> <br>
+        <input type="submit" value='Update Hero!'>
     </form>
 </div>
 </div>

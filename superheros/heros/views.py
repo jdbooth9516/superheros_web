@@ -37,19 +37,20 @@ def create(request):
 
 
 def edit(request, hero_id):
+    hero = Hero.objects.get(pk=hero_id)
 
     if request.method == 'POST':
         name = request.POST.get('name')
         alter = request.POST.get('alter')
         primary_power = request.POST.get('primary')
         secondary_power = request.POST.get('secondary')
-        phrase = request.POST.get('phrase')
+        phrase = request.PO.get('phrase')
         current_hero = Hero(id=hero_id, name=name, alter=alter, primary_power=primary_power, secondary_power=secondary_power, catchphrase = phrase)
         current_hero.save()
              
         return HttpResponseRedirect(reverse('heros:home'))
     else:
-        return render(request, 'heros/edit.html')
+        return render(request, 'heros/edit.html', {'hero': hero})
    
 
 
