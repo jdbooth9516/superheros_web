@@ -12,14 +12,17 @@
     <title>Superheros</title>
 </head>
 <body>
-    <div class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-        <div class="container-fluid">
+    <div class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
             <span class="navbar-text"><h1 class="navbar-brand" id='title'>The Supers</h1></span>
- 
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="{% url 'heros:home' %}" class='btn btn-outline-info btn-sm' id="home-button">Home</a></li>  
-                <li><a href="{% url 'heros:create_new_hero' %}" class='btn btn-outline-info btn-sm' id="create-button">Add a hero</a></li>  
+        <div class="collapse navbar-collapse" id='collapsibleNavbar'>
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'heros:home' %}" class='btn btn-outline-info btn-sm' id="home-btn">Home</a></li>  
+                <li><a href="{% url 'heros:create_new_hero' %}" class='btn btn-outline-info btn-sm' id="create-btn">Add a hero</a></li>  
             </ul>
         </div>
     </div>
@@ -31,12 +34,12 @@
                 <ul>
                 <li>
                 <div class="panel-heading">
-                    <h2 id="hero-title">{{hero.name}} - {{hero.alter}} - {{hero.primary_power}}</h2>
+                    <h2 id="hero-title">{{hero.name}} - {{hero.primary_power}}</h2>
                 </div>
                 <div class="panel-body col-sm-8">
-                    <a href="{% url 'heros:detail' hero.id %}" class="btn btn-outline-info btn-sm"> See more info </a>
-                    <a href="{% url 'heros:edit_hero' hero.id %}"class="btn btn-outline-primary btn-sm"> edit hero </a>
-                    <a href="{% url 'heros:delete' hero.id %}" class="btn btn-outline-danger btn-sm"> delete hero </a>
+                    <a href="{% url 'heros:detail' hero.id %}" class="btn btn-outline-info btn-sm" id='detail-btn'> Details </a>
+                    <a href="{% url 'heros:edit_hero' hero.id %}"class="btn btn-outline-primary btn-sm" id='edit-btn'> edit hero </a>
+                    <a href="{% url 'heros:delete' hero.id %}" class="btn btn-outline-danger btn-sm" id='delete-btn'> delete hero </a>
                 </div>
                 </li>
             </ul>
