@@ -1,0 +1,56 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <title>Superheros</title>
+</head>
+<body>
+    <div class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <div class="container-fluid">
+            <span class="navbar-text"><h1 clase="navbar-brand" id='title'>The Supers</h1></span>
+ 
+        
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'heros:home' %}" class='btn btn-outline-info' id="home-button">Home</a></li>  
+                <li><a href="{% url 'heros:create_new_hero' %}" class='btn btn-outline-info' id="create-button">Add a hero</a></li>  
+            </ul>
+        </div>
+    </div>
+    <div class="container" id='main-container' style="background-image: url('{% static "images/esteban-lopez-ByaqWzGJKhg-unsplash.jpg" %}'")>
+        <div class="row">
+            {% for hero in all_heros %}
+            <div class="col-sm-8 col-lg-4">
+            <div class="panel panel-default">
+                <ul>
+                <li>
+                <div class="panel-heading">
+                    <h2 id="hero-title">{{hero.name}} - {{hero.primary_power}}</h2>
+                </div>
+                <div class="panel-body">
+                    <a href="{% url 'heros:detail' hero.id %}" class="btn btn-outline-info"> See more info </a>
+                    <a href="{% url 'heros:edit_hero' hero.id %}"class="btn btn-outline-primary"> edit hero </a>
+                    <a href="{% url 'heros:delete' hero.id %}" class="btn btn-outline-danger"> delete hero </a>
+                </div>
+                </li>
+            </ul>
+            </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% block content %}
+   
+    
+    {% endblock %}
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

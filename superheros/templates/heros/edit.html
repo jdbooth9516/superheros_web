@@ -1,0 +1,14 @@
+{% extends 'heros/index.html' %}
+{% csrf_token %}
+{%block content%}
+<form action="" method="post">
+        {% csrf_token %}
+        Name: <input type='text' name='name' id='name'><br>
+        Alter: <input type='text' name='alter' id='alter'><br>
+        Primary: <input type='text' name='primary' id='primary'><br>
+        Secondary: <input type='text' name='secondary' id='secondary'><br>
+        Catchphrase: <input type='text' name='phrase' id='phrase'> <br>
+        <input type="submit" value'Update Hero!'>
+    </form>
+
+{%endblock content %}

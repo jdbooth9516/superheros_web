@@ -2,6 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import render
 from .models import Hero 
+
 # Create your views here.
 
 
@@ -18,7 +19,7 @@ def detail(request, hero_id):
     current_hero = Hero.objects.get(pk=hero_id)
     
 
-    return render(request, 'heros/index.html', {'current_hero': current_hero})
+    return render(request, 'heros/detail.html', {'current_hero': current_hero})
 
 
 def create(request):
@@ -35,8 +36,24 @@ def create(request):
 
 
 
-def edit(request,hero_id): 
-    pass
+def edit(request, hero_id):
 
-def delete(request,hero_id): 
-    pass
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        alter = request.POST.get('alter')
+        primary_power = request.POST.get('primary')
+        secondary_power = request.POST.get('secondary')
+        phrase = request.post.get('phrase')
+        current_hero = Hero(id=hero_id, name=name, alter=alter, primary_power=primary_power, secondary_power=secondary_power, catchphrase = phrase)
+        current_hero.save()
+             
+        return HttpResponseRedirect(reverse('heros:index'))
+    else:
+        return render(request, 'heros/edit.html')
+   
+
+
+def delete(hero_id): 
+    current_hero = Hero.objects.get(pk=hero_id)
+    current_hero.delete()
+    return HttpResponseRedirect(reverse('heros:index'))
