@@ -30,7 +30,7 @@ def create(request):
         secondary_power = request.POST.get('secondary')
         new_hero = Hero(name=name, alter=alter, primary_power=primary_power, secondary_power=secondary_power)
         new_hero.save()
-        return HttpResponseRedirect(reverse('heros:index'))
+        return HttpResponseRedirect(reverse('heros:home'))
     else:
         return render(request, 'heros/create.html')
 
@@ -43,11 +43,11 @@ def edit(request, hero_id):
         alter = request.POST.get('alter')
         primary_power = request.POST.get('primary')
         secondary_power = request.POST.get('secondary')
-        phrase = request.post.get('phrase')
+        phrase = request.POST.get('phrase')
         current_hero = Hero(id=hero_id, name=name, alter=alter, primary_power=primary_power, secondary_power=secondary_power, catchphrase = phrase)
         current_hero.save()
              
-        return HttpResponseRedirect(reverse('heros:index'))
+        return HttpResponseRedirect(reverse('heros:home'))
     else:
         return render(request, 'heros/edit.html')
    
@@ -56,4 +56,4 @@ def edit(request, hero_id):
 def delete(request, hero_id): 
     current_hero = Hero.objects.get(pk=hero_id)
     current_hero.delete()
-    return HttpResponseRedirect(reverse('heros:index.html'))
+    return HttpResponseRedirect(reverse('heros:home'))
