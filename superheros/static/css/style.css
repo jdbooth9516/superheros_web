@@ -9,11 +9,12 @@ li {
 }
 .btn { 
     font-size: 0.8em;
+    margin-top: .5em;
 }
 
 
 #main-container { 
-    min-height: 70vh;
+    min-height: 90vh;
     background-repeat: no-repeat;
     background-size: cover;
     margin-top: 10vh;
@@ -21,7 +22,33 @@ li {
 }
 
 #hero-title { 
-    color: rgb(133, 133, 133);
+    color: rgb(161, 161, 161);
     font-size: 1.3em;
+    
+}
+
+@media (max-width: 700px) {
+
+    .nav { 
+        align-items: center;
+        max-height: 18vh;
+    }
+    .navbar-text h1 { 
+        font-size: 1em;
+    }
+
+    .nav li {
+        align-items: center;
+        justify-content: center;
+        padding-left: 27vw;
+        margin-top: .5vh;
+    }
+
+    #main-container { 
+        margin-top: 20vh;
+        min-height: 70vh;
+        background-position: center;
+        
+    }
     
 }

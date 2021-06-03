@@ -14,12 +14,12 @@
 <body>
     <div class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
         <div class="container-fluid">
-            <span class="navbar-text"><h1 clase="navbar-brand" id='title'>The Supers</h1></span>
+            <span class="navbar-text"><h1 class="navbar-brand" id='title'>The Supers</h1></span>
  
         
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{% url 'heros:home' %}" class='btn btn-outline-info' id="home-button">Home</a></li>  
-                <li><a href="{% url 'heros:create_new_hero' %}" class='btn btn-outline-info' id="create-button">Add a hero</a></li>  
+                <li><a href="{% url 'heros:home' %}" class='btn btn-outline-info btn-sm' id="home-button">Home</a></li>  
+                <li><a href="{% url 'heros:create_new_hero' %}" class='btn btn-outline-info btn-sm' id="create-button">Add a hero</a></li>  
             </ul>
         </div>
     </div>
@@ -33,7 +33,7 @@
                 <div class="panel-heading">
                     <h2 id="hero-title">{{hero.name}} - {{hero.alter}} - {{hero.primary_power}}</h2>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body col-sm-8">
                     <a href="{% url 'heros:detail' hero.id %}" class="btn btn-outline-info btn-sm"> See more info </a>
                     <a href="{% url 'heros:edit_hero' hero.id %}"class="btn btn-outline-primary btn-sm"> edit hero </a>
                     <a href="{% url 'heros:delete' hero.id %}" class="btn btn-outline-danger btn-sm"> delete hero </a>
