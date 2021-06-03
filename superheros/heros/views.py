@@ -53,7 +53,7 @@ def edit(request, hero_id):
    
 
 
-def delete(hero_id): 
+def delete(request, hero_id): 
     current_hero = Hero.objects.get(pk=hero_id)
     current_hero.delete()
-    return HttpResponseRedirect(reverse('heros:index'))
+    return HttpResponseRedirect(reverse('heros:index.html'))

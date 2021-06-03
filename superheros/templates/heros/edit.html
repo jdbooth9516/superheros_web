@@ -1,7 +1,10 @@
 {% extends 'heros/index.html' %}
 {% csrf_token %}
 {%block content%}
-<form action="" method="post">
+
+<div class="container">
+<div class="jumbotron">
+    <form action="" method="post">
         {% csrf_token %}
         Name: <input type='text' name='name' id='name'><br>
         Alter: <input type='text' name='alter' id='alter'><br>
@@ -10,5 +13,7 @@
         Catchphrase: <input type='text' name='phrase' id='phrase'> <br>
         <input type="submit" value'Update Hero!'>
     </form>
+</div>
+</div>
 
 {%endblock content %}
