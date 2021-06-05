@@ -44,7 +44,7 @@ def edit(request, hero_id):
         alter = request.POST.get('alter')
         primary_power = request.POST.get('primary')
         secondary_power = request.POST.get('secondary')
-        phrase = request.PO.get('phrase')
+        phrase = request.POST.get('phrase')
         current_hero = Hero(id=hero_id, name=name, alter=alter, primary_power=primary_power, secondary_power=secondary_power, catchphrase = phrase)
         current_hero.save()
              
